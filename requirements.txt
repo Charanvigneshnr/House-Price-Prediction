@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+sklearn
+warnings
+pickle
+json
+flask
+streamlit
+requests
