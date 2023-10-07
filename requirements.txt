@@ -1,7 +1,7 @@
 pandas
 numpy
 matplotlib
-scikit-lean
+scikit-learn
 warnings
 pickle
 json
