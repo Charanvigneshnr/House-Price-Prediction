@@ -77,6 +77,5 @@ def predict_price(location, total_sqft, bhk, bath):
         raise
 
 
-
 if __name__ == '__main__':
     main()
