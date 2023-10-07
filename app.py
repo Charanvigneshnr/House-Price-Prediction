@@ -66,7 +66,7 @@ def predict_price(location, total_sqft, bhk, bath):
         'bath': bath
     }
 
-    response = requests.post("http://127.0.0.1:5000/predict_home_price", data=payload)
+    response = requests.post("https://house-price-prediction-nrcv.streamlit.app/predict_home_price", data=payload)
     data = response.json()
     return data['estimated_price']
 
