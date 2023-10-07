@@ -37,7 +37,7 @@ def load_saved_artifacts():
     if __model is None:
         with open('./artifacts/house_price.pickle', 'rb') as f:
             __model = pickle.load(f)
-    print("loading saved artifacts...done")
+    print("artifacts loaded")
 
 
 def get_location_names():
