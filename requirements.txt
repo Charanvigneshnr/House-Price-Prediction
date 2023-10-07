@@ -2,9 +2,6 @@ pandas
 numpy
 matplotlib
 scikit-learn
-warnings
-pickle
-json
+requests
 flask
 streamlit
-requests
