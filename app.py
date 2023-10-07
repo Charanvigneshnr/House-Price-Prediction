@@ -1,10 +1,10 @@
-import pandas as pd
 import requests
 import streamlit as st
+import pandas as pd
 
 
 def main():
-    st.set_page_config(page_title="Bangalore House Price Prediction App", page_icon=":house:")
+    st.set_page_config(page_title="Bangalore Price Prediction App", page_icon=":house:")
 
     # Navigation bar
     st.sidebar.title("Navigation")
@@ -17,12 +17,12 @@ def main():
 
 
 def show_home():
-    st.title("Bangalore House Price Prediction App")
+    st.title("Bangalore Price Prediction App")
 
-    total_sqft = st.number_input("Total Square Feet: ", min_value=300, max_value=10000, value=1500)
-    location = st.text_input("Location: ")
-    bhk = st.number_input("BHK: ", min_value=1, max_value=5, value=3, step=1, format="%d")
-    bath = st.number_input("Number of Bathrooms: ", min_value=1, max_value=5, value=2, step=1, format="%d")
+    total_sqft = st.number_input("Total Square Feet", min_value=300, max_value=10000, value=1500)
+    location = st.text_input("Location")
+    bhk = st.number_input("BHK", min_value=1, max_value=5, value=3, step=1, format="%d")
+    bath = st.number_input("Number of Bathrooms", min_value=1, max_value=5, value=2, step=1, format="%d")
 
     if st.button("Predict Price"):
         estimated_price = predict_price(location, total_sqft, bhk, bath)
@@ -53,7 +53,7 @@ def show_about():
     st.subheader("Model Comparison")
     comparison_data = {
         'Model': ['Linear Regression', 'Lasso', 'Decision Tree'],
-        'Best Score': ["81.90%", "68.74%", "71.58%"],
+        'Best Score': [0.819001, 0.687464, 0.715887],
     }
     st.write(pd.DataFrame(comparison_data).set_index('Model'))
 
