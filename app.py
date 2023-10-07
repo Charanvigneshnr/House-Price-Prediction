@@ -1,7 +1,6 @@
-# app.py
-import pandas as pd
 import requests
 import streamlit as st
+import pandas as pd
 
 
 def main():
@@ -54,7 +53,7 @@ def show_about():
     st.subheader("Model Comparison")
     comparison_data = {
         'Model': ['Linear Regression', 'Lasso', 'Decision Tree'],
-        'Best Score': ["81.90%", "68.74%", "71.58%"],
+        'Best Score': [0.819001, 0.687464, 0.715887],
     }
     st.write(pd.DataFrame(comparison_data).set_index('Model'))
 
@@ -67,14 +66,9 @@ def predict_price(location, total_sqft, bhk, bath):
         'bath': bath
     }
 
-    response = requests.post("https://house-price-prediction-nrcv.streamlit.app/predict_home_price", data=payload)
-
-    try:
-        data = response.json()
-        return data['estimated_price']
-    except requests.exceptions.JSONDecodeError:
-        print(response.content)
-        raise
+    response = requests.post("http://127.0.0.1:5000/predict_home_price", data=payload)
+    data = response.json()
+    return data['estimated_price']
 
 
 if __name__ == '__main__':
