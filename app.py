@@ -54,7 +54,7 @@ def show_about():
     st.subheader("Model Comparison")
     comparison_data = {
         'Model': ['Linear Regression', 'Lasso', 'Decision Tree'],
-        'Best Score': [0.819001, 0.687464, 0.715887],
+        'Best Score': ["81.90%", "68.74%", "71.58%"],
     }
     st.write(pd.DataFrame(comparison_data).set_index('Model'))
 
