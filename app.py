@@ -68,8 +68,14 @@ def predict_price(location, total_sqft, bhk, bath):
     }
 
     response = requests.post("https://house-price-prediction-nrcv.streamlit.app/predict_home_price", data=payload)
-    data = response.json()
-    return data['estimated_price']
+
+    try:
+        data = response.json()
+        return data['estimated_price']
+    except requests.exceptions.JSONDecodeError:
+        print(response.content)
+        raise
+
 
 
 if __name__ == '__main__':
